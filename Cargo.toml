@@ -1,0 +1,11 @@
+[package]
+name = "typed-open-graph"
+version = "0.1.0"
+edition = "2024"
+
+[features]
+chrono = ["dep:chrono"]
+
+[dependencies]
+chrono = { version = "0.4.42", optional = true }
+url = "2.5.7"
