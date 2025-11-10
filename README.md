@@ -11,7 +11,7 @@ use url::Url;
 
 fn main() {
     let website = Website::builder(
-        "https://example.com",
+        "The Title",
         Url::parse("https://example.com/image.jpg").unwrap(),
         Url::parse("https://example.com/").unwrap()
     )

@@ -1,12 +1,11 @@
 [package]
 name = "typed-open-graph"
 description = "The Open Graph Protocol Builder"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2024"
 readme = "README.md"
 repository = "https://github.com/cjtoolkit/typed-open-graph"
 license = "MIT"
-license-file = "LICENSE.txt"
 keywords = ["opengraph", "facebook", "social", "meta", "linkedin"]
 
 [package.metadata.docs.rs]
