@@ -1,7 +1,7 @@
 [package]
 name = "typed-open-graph"
 description = "The Open Graph Protocol Builder"
-version = "0.1.3"
+version = "0.2.0"
 edition = "2024"
 readme = "README.md"
 repository = "https://github.com/cjtoolkit/typed-open-graph"
@@ -16,5 +16,6 @@ chrono = ["dep:chrono"]
 
 [dependencies]
 url = "2.5.7"
+humantime = "2.3.0"
 
 chrono = { version = "0.4.42", optional = true }

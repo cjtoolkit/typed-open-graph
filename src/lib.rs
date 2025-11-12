@@ -1,7 +1,9 @@
 #![deny(unsafe_code)]
 #![cfg_attr(docsrs, feature(doc_cfg))]
 
+use humantime::format_rfc3339;
 use std::fmt::Display;
+use std::time::SystemTime;
 
 const PREFIX: &str = "og: https://ogp.me/ns#";
 
@@ -474,6 +476,14 @@ impl OpenGraphBuilder<MusicAlbum> {
         self
     }
 
+    pub fn music_release_date(mut self, music_release_date: SystemTime) -> Self {
+        self.list.push((
+            "music:release_date",
+            OpenGraphDataTypes::String(format_rfc3339(music_release_date).to_string()),
+        ));
+        self
+    }
+
     #[cfg(feature = "chrono")]
     pub fn music_release_date_chrono(
         mut self,
@@ -566,6 +576,14 @@ impl OpenGraphBuilder<VideoMovie> {
         self
     }
 
+    pub fn video_release_date(mut self, video_release_date: SystemTime) -> Self {
+        self.list.push((
+            "video:release_date",
+            OpenGraphDataTypes::String(format_rfc3339(video_release_date).to_string()),
+        ));
+        self
+    }
+
     #[cfg(feature = "chrono")]
     pub fn video_release_date_chrono(
         mut self,
@@ -621,6 +639,14 @@ impl OpenGraphBuilder<VideoEpisode> {
                 OpenGraphDataTypes::Integer(video_duration),
             ));
         }
+        self
+    }
+
+    pub fn video_release_date(mut self, video_release_date: SystemTime) -> Self {
+        self.list.push((
+            "video:release_date",
+            OpenGraphDataTypes::String(format_rfc3339(video_release_date).to_string()),
+        ));
         self
     }
 
@@ -746,6 +772,14 @@ impl OpenGraphBuilder<VideoOther> {
         self
     }
 
+    pub fn video_release_date(mut self, video_release_date: SystemTime) -> Self {
+        self.list.push((
+            "video:release_date",
+            OpenGraphDataTypes::String(format_rfc3339(video_release_date).to_string()),
+        ));
+        self
+    }
+
     #[cfg(feature = "chrono")]
     pub fn video_release_date_chrono(
         mut self,
@@ -768,6 +802,14 @@ impl OpenGraphBuilder<VideoOther> {
 }
 
 impl OpenGraphBuilder<Article> {
+    pub fn article_published_time(mut self, article_published_time: SystemTime) -> Self {
+        self.list.push((
+            "article:published_time",
+            OpenGraphDataTypes::String(format_rfc3339(article_published_time).to_string()),
+        ));
+        self
+    }
+
     #[cfg(feature = "chrono")]
     pub fn article_published_time_chrono(
         mut self,
@@ -780,6 +822,14 @@ impl OpenGraphBuilder<Article> {
         self
     }
 
+    pub fn article_modified_time(mut self, article_modified_time: SystemTime) -> Self {
+        self.list.push((
+            "article:modified_time",
+            OpenGraphDataTypes::String(format_rfc3339(article_modified_time).to_string()),
+        ));
+        self
+    }
+
     #[cfg(feature = "chrono")]
     pub fn article_modified_time_chrono(
         mut self,
@@ -788,6 +838,14 @@ impl OpenGraphBuilder<Article> {
         self.list.push((
             "article:modified_time",
             OpenGraphDataTypes::String(article_modified_time.into().to_rfc3339()),
+        ));
+        self
+    }
+
+    pub fn article_expiration_time(mut self, article_expiration_time: SystemTime) -> Self {
+        self.list.push((
+            "article:expiration_time",
+            OpenGraphDataTypes::String(format_rfc3339(article_expiration_time).to_string()),
         ));
         self
     }
@@ -838,6 +896,14 @@ impl OpenGraphBuilder<Book> {
         self.list.push((
             "book:isbn",
             OpenGraphDataTypes::String(book_isbn.into().to_string()),
+        ));
+        self
+    }
+
+    pub fn book_release_date(mut self, book_release_date: SystemTime) -> Self {
+        self.list.push((
+            "book:release_date",
+            OpenGraphDataTypes::String(format_rfc3339(book_release_date).to_string()),
         ));
         self
     }
